@@ -1,7 +1,95 @@
 body {
- background-color: #f5f5f5; 
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .animation-container {
+    width: 90vw;
+    height: 50vh;
+    margin-top: -100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .animation-container {
+    width: 100vw;
+    height: 40vh;
+    margin-top: -80px;
+  }
+}
+
+@font-face {
+  font-family: "PPNeueMachinaPlain";
+  src: url("../public/fonts/PPNeueMachina-PlainRegular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PPNeueMachinaBold";
+  src: url("../public/fonts/PPNeueMachina-PlainUltrabold.otf")
+    format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PPNeueMachinaLight";
+  src: url("../public/fonts/PPNeueMachina-PlainLight.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: PPNeueMachinaItalic;
+  src: url("../public/fonts/PPNeueMachina-PlainRegularItalic.otf")
+    format("opentype");
 }
 
 .navbar {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.large-font {
+  font-size: 5rem;
+  color: linen;
+  font-family: "PPNeueMachinaBold", sans-serif;
+}
+
+.medium-font {
+  font-size: 1.5rem;
+  color: linen;
+  font-family: "PPNeueMachinaLight", sans-serif;
+}
+
+.small-font {
+  font-size: 1rem;
+  color: linen;
+  font-family: "PPNeueMachinaItalic", sans-serif;
+}
+
+.animation-container {
+  width: 80vw;
+  height: 60vh;
+  max-width: 800px;
+  max-height: 600px;
+  margin-top: -120px;
+}
+
+/* Aplicando a fonte em todo o site */
+html,
+body {
+  font-family: "PPNeueMachinaLight", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Reset de margem e padding para todos os elementos */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
