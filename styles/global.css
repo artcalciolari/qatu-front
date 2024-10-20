@@ -1,5 +1,21 @@
+/* Aplicando a fonte em todo o site */
+html,
 body {
-  background-color: #f5f5f5;
+  font-family: "PPNeueMachinaLight", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: gray;
+  background-image: url("../public/background.jpg");
+}
+
+/* Reset de margem e padding para todos os elementos */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 @media (max-width: 768px) {
@@ -74,22 +90,4 @@ body {
   max-width: 800px;
   max-height: 600px;
   margin-top: -120px;
-}
-
-/* Aplicando a fonte em todo o site */
-html,
-body {
-  font-family: "PPNeueMachinaLight", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Reset de margem e padding para todos os elementos */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
 }

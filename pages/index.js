@@ -1,17 +1,7 @@
 import dynamic from "next/dynamic";
-import {
-  Container,
-  Navbar,
-  Nav,
-  Button,
-  Row,
-  Col,
-  Card,
-} from "react-bootstrap";
+import { Container, Button, Row, Col, Card } from "react-bootstrap";
 import Image from "next/image";
-import BagIcon from "../components/BagIcon"; // Importando o ícone
 import animationData from "../public/animations/landingpage.json";
-import BackgroundAnimation from "../components/BackgroundAnimation";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
@@ -21,10 +11,9 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 export default function Home() {
   return (
     <>
-      <BackgroundAnimation />
       {/* Header */}
       <Header />
-      
+
       {/* Seção Inicial */}
       <div
         style={{
@@ -32,10 +21,10 @@ export default function Home() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          minHeight: "80vh", // Mantém o conteúdo mais centralizado
-          padding: "10px 20px", // Reduz o padding
+          minHeight: "80vh",
+          padding: "10px 20px",
           textAlign: "center",
-          gap: "10px", // Espaçamento reduzido entre os itens
+          gap: "10px",
         }}
       >
         <h1 className="large-font" style={{ marginBottom: "5px" }}>
@@ -45,19 +34,23 @@ export default function Home() {
           Conectando culturas, entregando experiências.
         </p>
 
-        <Button variant="outline-light" style={{ marginBottom: "10px" }}>
+        <Button
+          variant="outline-light"
+          style={{ marginBottom: "10px" }}
+          href="#"
+        >
           Catálogo de Produtos
         </Button>
 
         {/* Animação */}
-        <div className="animation-container">
+        <div className="animation-container" style={{ pointerEvents: "none" }}>
           <Lottie animationData={animationData} />
         </div>
       </div>
 
       {/* Seção de Produtos */}
       <Container className="mt-5">
-        <h2 className="medium-font">Seleção de Produtos</h2>
+        <h2 className="medium-font">Mais Vendidos</h2>
         <Row>
           {[...Array(6)].map((_, index) => (
             <Col key={index} md={4} className="mb-4">
