@@ -22,21 +22,19 @@ export default function Home() {
           alignItems: "center",
           justifyContent: "center",
           minHeight: "80vh",
-          padding: "10px 20px",
+          padding: "1rem 2rem",
           textAlign: "center",
-          gap: "10px",
+          gap: "1rem",
         }}
       >
-        <h1 className="large-font" style={{ marginBottom: "5px" }}>
-          Qatu Marketplace
-        </h1>
-        <p className="lead medium-font" style={{ marginBottom: "10px" }}>
+        <h1 className="large-font">Qatu Marketplace</h1>
+        <p className="lead medium-font" style={{ marginBottom: "1rem" }}>
           Conectando culturas, entregando experiências.
         </p>
 
         <Button
           variant="outline-light"
-          style={{ marginBottom: "10px" }}
+          style={{ marginBottom: "1rem" }}
           href="#"
         >
           Catálogo de Produtos
@@ -55,7 +53,8 @@ export default function Home() {
           {[...Array(6)].map((_, index) => (
             <Col key={index} md={4} className="mb-4">
               <Card>
-                <div className="position-relative" style={{ height: "300px" }}>
+                <div className="position-relative" style={{ height: "30vh" }}>
+                  {/* Usando vh para altura responsiva */}
                   <Image
                     src="/product-placeholder.png"
                     alt={`Produto ${index + 1}`}
