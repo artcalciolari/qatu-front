@@ -46,14 +46,21 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Seção de Produtos */}
+      {/* Seção de Mais Vendidos */}
       <Container className="mt-5">
         <h2 className="medium-font">Mais Vendidos</h2>
         <Row>
           {[...Array(6)].map((_, index) => (
             <Col key={index} md={4} className="mb-4">
-              <Card>
-                <div className="position-relative" style={{ height: "30vh" }}>
+              <Card style={{ borderRadius: "15px" }}>
+                <div
+                  className="position-relative"
+                  style={{
+                    height: "30vh",
+                    overflow: "hidden",
+                    borderRadius: "20px 20px 0 0",
+                  }}
+                >
                   {/* Usando vh para altura responsiva */}
                   <Image
                     src="/product-placeholder.png"

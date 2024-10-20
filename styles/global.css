@@ -9,15 +9,6 @@ body {
   background-image: url("../public/background.jpg");
 }
 
-/* Reset de margem e padding para todos os elementos */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
 @media (max-width: 768px) {
   .animation-container {
     width: 90vw;
