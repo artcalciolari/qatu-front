@@ -1,131 +1,87 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import dynamic from "next/dynamic";
+import { Container, Button, Row, Col, Card } from "react-bootstrap";
+import Image from "next/image";
+import animationData from "../public/animations/landingpage.json";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+
+// Carregando Lottie dinamicamente no lado do cliente
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      {/* Header */}
+      <Header />
 
-      <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
+      {/* Seção Inicial */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: "80vh",
+          padding: "1rem 2rem",
+          textAlign: "center",
+          gap: "1rem",
+        }}
+      >
+        <h1 className="large-font">Qatu Marketplace</h1>
+        <p className="lead medium-font" style={{ marginBottom: "1rem" }}>
+          Conectando culturas, entregando experiências.
         </p>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Button
+          variant="outline-light"
+          style={{ marginBottom: "1rem" }}
+          href="#"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
-      </footer>
+          Catálogo de Produtos
+        </Button>
 
-      <style jsx>{`
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
-        }
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family:
-            Menlo,
-            Monaco,
-            Lucida Console,
-            Liberation Mono,
-            DejaVu Sans Mono,
-            Bitstream Vera Sans Mono,
-            Courier New,
-            monospace;
-        }
-      `}</style>
+        {/* Animação */}
+        <div className="animation-container" style={{ pointerEvents: "none" }}>
+          <Lottie animationData={animationData} />
+        </div>
+      </div>
 
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family:
-            -apple-system,
-            BlinkMacSystemFont,
-            Segoe UI,
-            Roboto,
-            Oxygen,
-            Ubuntu,
-            Cantarell,
-            Fira Sans,
-            Droid Sans,
-            Helvetica Neue,
-            sans-serif;
-        }
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
+      {/* Seção de Mais Vendidos */}
+      <Container className="mt-5">
+        <h2 className="medium-font">Mais Vendidos</h2>
+        <Row>
+          {[...Array(6)].map((_, index) => (
+            <Col key={index} md={4} className="mb-4">
+              <Card style={{ borderRadius: "15px" }}>
+                <div
+                  className="position-relative"
+                  style={{
+                    height: "30vh",
+                    overflow: "hidden",
+                    borderRadius: "20px 20px 0 0",
+                  }}
+                >
+                  {/* Usando vh para altura responsiva */}
+                  <Image
+                    src="/product-placeholder.png"
+                    alt={`Produto ${index + 1}`}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+                <Card.Body>
+                  <Card.Title>Produto {index + 1}</Card.Title>
+                  <Card.Text>Descrição breve do produto {index + 1}.</Card.Text>
+                  <Button variant="primary">Comprar</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+
+      {/* Footer */}
+      <Footer />
+    </>
   );
 }
